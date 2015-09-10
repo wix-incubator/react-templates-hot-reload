@@ -37,9 +37,10 @@ module.exports = {
             {test: /\.json$/, loader: 'json-loader'},
             {test: /\.less$/, loader: 'style-loader!css-loader!less-loader'}, // use ! to chain loaders
             {test: /\.css$/, loader: 'style-loader!css-loader'},
+            {test: /\.scss$/, loader: 'style!css!sass'},
             {test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'}, // inline base64 URLs for <=8k images, direct URLs for the rest
             {test: /\.rt/, exclude: /samples/, loaders: ['react-hot', 'react-templates-loader']},
-            {test: /\.text/, loaders: ['raw-loader']}
+            {test: /\.text/, loaders: ['raw-loader']},
             //"md|markdown": ["html-loader", "markdown-loader"]
         ]
     }

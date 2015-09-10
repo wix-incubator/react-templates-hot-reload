@@ -1,11 +1,15 @@
 'use strict';
 import React, { Component } from 'react';
 import template from './Todo.rt';
+require('./assets/style.scss');
+//require("style/url!file!./assets/style2.css");
+
+const ENTER_KEY = 13;
 
 module.exports = React.createClass({
     displayName: 'Todo',
     mixins: [React.addons.LinkedStateMixin],
-    getInitialState: function () {
+    getInitialState() {
         return {edited: '', todos: [], counter: 0};
     },
     add() {
@@ -24,13 +28,19 @@ module.exports = React.createClass({
         this.setState({todos: todos});
     },
     clearDone() {
-        this.setState({todos: _.filter(this.state.todos, {done: false})});
+        this.setState({todos: this.getPending()});
+    },
+    getDone() {
+        return _.filter(this.state.todos, {done: true});
+    },
+    getPending() {
+        return _.filter(this.state.todos, {done: false});
     },
     countTodos(done) {
         return _.filter(this.state.todos, {done: done}).length;
     },
     inputKeyDown(e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode == ENTER_KEY) {
             e.preventDefault();
             this.add();
         }
