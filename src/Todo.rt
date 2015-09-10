@@ -1,0 +1,13 @@
+<div>
+    Have {this.countTodos(true)} todos done,
+    and {this.countTodos(false)} not done
+    <br/>
+    <div rt-repeat="todo in this.state.todos" key="{todo.key}">
+        <button onClick="()=>this.remove(todo)">x</button>
+        <input type="checkbox" checked="{todo.done}" onChange="()=>this.toggleChecked(todoIndex)"/>
+        <span style="text-decoration: {todo.done ? 'line-through': 'none'}">{todo.value}</span>
+    </div>
+    <input key="myinput" type="text" onKeyDown="{this.inputKeyDown}" valueLink="{this.linkState('edited')}"/>
+    <button onClick="()=>this.add()">Add</button><br/>
+    <button onClick="()=>this.clearDone()">Clear done</button>
+</div>
