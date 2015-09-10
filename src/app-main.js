@@ -1,7 +1,6 @@
 'use strict';
 import React, { Component } from 'react';
 import app from './app';
-import _ from 'lodash';
 
 console.log('Hello from app-main', _.now());
 

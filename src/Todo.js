@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import template from './Todo.rt';
 require('./assets/style.scss');
-//require("style/url!file!./assets/style2.css");
 
 const ENTER_KEY = 13;
 
