@@ -1,11 +1,9 @@
-'use strict';
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import app from './app';
 
-console.log('Hello from app-main', _.now());
-
 var elem = React.createElement(app);
-var rootInstance = React.render(elem, document.getElementById('root'));
+var rootInstance = ReactDOM.render(elem, document.getElementById('root'));
 
 if (module.hot) {
     require('react-hot-loader/Injection').RootInstanceProvider.injectProvider({
